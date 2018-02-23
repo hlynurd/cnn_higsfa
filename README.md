@@ -1,2 +1,1 @@
-# higsfa_cnn
-# cnn_higsfa
+Scripts and code to perform comparison of HiGSFA and CNNs
