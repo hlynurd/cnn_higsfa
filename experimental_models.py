@@ -1,12 +1,11 @@
 import mdp
-import system_parameters
-import network_builder
-import sfa_libs 
-import more_nodes
-import more_nodes as he
-import patch_mdp
+from cuicuilco import system_parameters
+from cuicuilco import network_builder
+from cuicuilco import sfa_libs
+from cuicuilco import more_nodes
+from cuicuilco import patch_mdp
 import keras
-from nonlinear_expansion import *
+from cuicuilco.nonlinear_expansion import *
 from keras import Sequential
 from keras.layers import *
 import tensorflow as tf
