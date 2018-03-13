@@ -99,7 +99,7 @@ def instantiate_higsfa(dim1=35, dim2=35):
         "offsetting_mode":None,
         "max_preserved_sfa": maximum_delta, 
         "reconstruct_with_sfa" : False,
-        "max_lenght_slow_part":middle_features}
+        "max_length_slow_part":middle_features}
     pSFALayerL1.sfa_out_dim = middle_features
     pSFALayerL1.cloneLayer = True
 
