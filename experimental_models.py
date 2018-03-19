@@ -79,8 +79,8 @@ def instantiate_higsfa(dim1=35, dim2=35):
     pSFALayerL0.y_field_spacing=2 
     pSFALayerL0.sfa_node_class = mdp.nodes.iGSFANode
     pSFALayerL0.sfa_args = {
-        "offsetting_mode":None,
-        "max_preserved_sfa": maximum_delta,
+        "slow_feature_scaling_method":None,
+        "delta_threshold": maximum_delta,
         "reconstruct_with_sfa" : False}
     pSFALayerL0.sfa_out_dim = 25
     pSFALayerL0.cloneLayer = True
@@ -96,8 +96,8 @@ def instantiate_higsfa(dim1=35, dim2=35):
     #pSFALayerL1.sfa_node_class = mdp.nodes.GSFANode
     pSFALayerL1.sfa_node_class = mdp.nodes.iGSFANode
     pSFALayerL1.sfa_args = {
-        "offsetting_mode":None,
-        "max_preserved_sfa": maximum_delta, 
+        "slow_feature_scaling_method":None,
+        "delta_threshold": maximum_delta, 
         "reconstruct_with_sfa" : False,
         "max_length_slow_part":middle_features}
     pSFALayerL1.sfa_out_dim = middle_features
