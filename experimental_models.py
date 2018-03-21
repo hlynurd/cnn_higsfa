@@ -83,7 +83,7 @@ def instantiate_higsfa(dim1=35, dim2=35):
         "delta_threshold": maximum_delta,
         "reconstruct_with_sfa" : False}
     pSFALayerL0.sfa_out_dim = 25
-    pSFALayerL0.cloneLayer = True
+    pSFALayerL0.clone_layer = True
 
     ##################### Second layer    ###########################
 
@@ -101,7 +101,7 @@ def instantiate_higsfa(dim1=35, dim2=35):
         "reconstruct_with_sfa" : False,
         "max_length_slow_part":middle_features}
     pSFALayerL1.sfa_out_dim = middle_features
-    pSFALayerL1.cloneLayer = True
+    pSFALayerL1.clone_layer = True
 
 
     Omnitglot_network = system_parameters.ParamsNetwork()
