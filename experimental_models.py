@@ -1,12 +1,11 @@
 import mdp
-import system_parameters
-import network_builder
-import sfa_libs 
-import more_nodes
-import more_nodes as he
-import patch_mdp
+from cuicuilco import system_parameters
+from cuicuilco import network_builder
+from cuicuilco import sfa_libs
+from cuicuilco import more_nodes
+from cuicuilco import patch_mdp
 import keras
-from nonlinear_expansion import *
+from cuicuilco.nonlinear_expansion import *
 from keras import Sequential
 from keras.layers import *
 import tensorflow as tf
@@ -80,11 +79,11 @@ def instantiate_higsfa(dim1=35, dim2=35):
     pSFALayerL0.y_field_spacing=2 
     pSFALayerL0.sfa_node_class = mdp.nodes.iGSFANode
     pSFALayerL0.sfa_args = {
-        "offsetting_mode":None,
-        "max_preserved_sfa": maximum_delta,
+        "slow_feature_scaling_method":None,
+        "delta_threshold": maximum_delta,
         "reconstruct_with_sfa" : False}
     pSFALayerL0.sfa_out_dim = 25
-    pSFALayerL0.cloneLayer = True
+    pSFALayerL0.clone_layer = True
 
     ##################### Second layer    ###########################
 
@@ -97,12 +96,12 @@ def instantiate_higsfa(dim1=35, dim2=35):
     #pSFALayerL1.sfa_node_class = mdp.nodes.GSFANode
     pSFALayerL1.sfa_node_class = mdp.nodes.iGSFANode
     pSFALayerL1.sfa_args = {
-        "offsetting_mode":None,
-        "max_preserved_sfa": maximum_delta, 
+        "slow_feature_scaling_method":None,
+        "delta_threshold": maximum_delta, 
         "reconstruct_with_sfa" : False,
-        "max_lenght_slow_part":middle_features}
+        "max_length_slow_part":middle_features}
     pSFALayerL1.sfa_out_dim = middle_features
-    pSFALayerL1.cloneLayer = True
+    pSFALayerL1.clone_layer = True
 
 
     Omnitglot_network = system_parameters.ParamsNetwork()
