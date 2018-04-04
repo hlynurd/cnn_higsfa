@@ -30,16 +30,18 @@ def instantiate_cnn1(alphabets, per_alphabet_character, dim1=35, dim2=35):
 
 #    with tf.Session() as sess:
     net = Sequential()
-    net.add(Conv2D(48, (5, 5), input_shape=(dim1, dim2, 1), activation='relu'))
+    net.add(Conv2D(16, (7, 7), input_shape=(dim1, dim2, 1), activation='relu', padding= "same"))
     net.add(MaxPooling2D(pool_size=(2, 2)))
-    net.add(Conv2D(64, (5, 5), activation='relu', padding = "same"))
-    net.add(MaxPooling2D(pool_size=(2, 2), padding = "same"))
-    net.add(Conv2D(64, (5, 5), activation='relu'))
+    net.add(Conv2D(32, (5, 5), activation='relu', padding = "same"))
+    net.add(MaxPooling2D(pool_size=(2, 2)))
+    net.add(Conv2D(32, (5, 5), activation='relu', padding = "same"))
+    net.add(MaxPooling2D(pool_size=(2, 2)))
     net.add(Flatten())
     net.add(Dense(150, activation='relu'))
     net.add(Dense(alphabets*per_alphabet_character, activation='softmax'))
     net.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
     return net
+
 
 def instantiate_cnn2(alphabets, per_alphabet_character, dim1=35, dim2=35):
 #    import tensorflow as tf
@@ -56,15 +58,17 @@ def instantiate_cnn2(alphabets, per_alphabet_character, dim1=35, dim2=35):
     set_session(tf.Session(config=config))
 
     net = Sequential()
-    net.add(Conv2D(16, (5, 5), input_shape=(dim1, dim2, 1), activation='relu'))
+    net.add(Conv2D(8, (7, 7), input_shape=(dim1, dim2, 1), activation='relu', padding = "same"))
     net.add(MaxPooling2D(pool_size=(2, 2)))
-    net.add(Conv2D(14, (5, 5), activation='relu', padding = "same"))
-    net.add(MaxPooling2D(pool_size=(2, 2), padding = "same"))
-    net.add(Conv2D(14, (5, 5), activation='relu'))
+    net.add(Conv2D(16, (5, 5), activation='relu', padding = "same"))
+    net.add(MaxPooling2D(pool_size=(2, 2)))
+    net.add(Conv2D(16, (5, 5), activation='relu', padding = "same"))
+    net.add(MaxPooling2D(pool_size=(2, 2)))
     net.add(Flatten())
     net.add(Dense(alphabets*per_alphabet_character, activation='softmax'))
     net.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])            
     return net
+
 
 def instantiate_higsfa(dim1=35, dim2=35):
     maximum_delta = 1.99
